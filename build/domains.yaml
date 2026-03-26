@@ -1,7 +1,0 @@
-default: twi_master
-build_dir: D:/work/ncs/v3.2.0/twi_master/build
-domains:
-  - name: twi_master
-    build_dir: D:/work/ncs/v3.2.0/twi_master/build/twi_master
-flash_order:
-  - twi_master
