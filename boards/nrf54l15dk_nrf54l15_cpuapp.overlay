@@ -6,10 +6,13 @@
  *
  * Uses i2c21 (TWIM) as the I2C master.
  *
- * Physical wiring to the slave board (matches original test example):
- *   Master P1.08  SDA  ────  Slave P1.09  SDA
- *   Master P1.12  SCL  ────  Slave P1.13  SCL
+ * Physical wiring to the slave board:
+ *   Master P1.08  SDA  ────  Slave P1.08  SDA
+ *   Master P1.12  SCL  ────  Slave P1.12  SCL
  *   GND                ────  GND
+ *
+ * Both boards use the same pin numbers, so the wiring is pin-to-pin
+ * at the same position on each board's PORT P1 header.
  */
 
 &pinctrl {
