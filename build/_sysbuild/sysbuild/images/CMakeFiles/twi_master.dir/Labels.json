@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/CMakeFiles/twi_master"
+		},
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/CMakeFiles/twi_master.rule"
+		},
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/CMakeFiles/twi_master-complete.rule"
+		},
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-build.rule"
+		},
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-configure.rule"
+		},
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-download.rule"
+		},
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-install.rule"
+		},
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-mkdir.rule"
+		},
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-patch.rule"
+		},
+		{
+			"file" : "D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"twi_master"
+		],
+		"name" : "twi_master"
+	}
+}

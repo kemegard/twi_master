@@ -1,0 +1,13 @@
+# Target labels
+ twi_master
+# Source files and their labels
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/CMakeFiles/twi_master
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/CMakeFiles/twi_master.rule
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/CMakeFiles/twi_master-complete.rule
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-build.rule
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-configure.rule
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-download.rule
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-install.rule
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-mkdir.rule
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-patch.rule
+D:/work/ncs/v3.2.0/twi_master/build/_sysbuild/sysbuild/images/twi_master-prefix/src/twi_master-stamp/twi_master-update.rule

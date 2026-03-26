@@ -1,0 +1,39 @@
+/*
+ * Copyright 2024 Nordic Semiconductor ASA
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * nRF54L15DK  –  TWI Master overlay
+ *
+ * Uses i2c21 (TWIM) as the I2C master.
+ *
+ * Physical wiring to the slave board:
+ *   P1.08  SDA  ────  Slave SDA
+ *   P1.12  SCL  ────  Slave SCL
+ *   GND         ────  GND
+ */
+
+&pinctrl {
+	i2c21_default_alt: i2c21_default_alt {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 1, 8)>,
+				<NRF_PSEL(TWIM_SCL, 1, 12)>;
+		};
+	};
+
+	i2c21_sleep_alt: i2c21_sleep_alt {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 1, 8)>,
+				<NRF_PSEL(TWIM_SCL, 1, 12)>;
+			low-power-enable;
+		};
+	};
+};
+
+&i2c21 {
+	compatible = "nordic,nrf-twim";
+	status = "okay";
+	pinctrl-0 = <&i2c21_default_alt>;
+	pinctrl-1 = <&i2c21_sleep_alt>;
+	pinctrl-names = "default", "sleep";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
