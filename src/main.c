@@ -9,11 +9,11 @@
  *   2. Reads 4 bytes back from the slave and verifies they match.
  *
  * Hardware wiring (to slave board):
- *   Master P1.08 (SDA)  ----  Slave P1.08 (SDA)
- *   Master P1.12 (SCL)  ----  Slave P1.12 (SCL)
+ *   Master P1.08 (SDA)  ----  Slave P1.09 (SDA)
+ *   Master P1.12 (SCL)  ----  Slave P1.13 (SCL)
  *   Common GND          ----  Common GND
  *
- * Both boards use the same pin numbers - wire P1.08-to-P1.08, P1.12-to-P1.12.
+ * NOTE: Slave uses P1.09/P1.13 to avoid sharing DK button pins.
  *
  * Build:
  *   west build -b nrf54l15dk/nrf54l15/cpuapp -- -DAPP_DIR=<path_to_twi_master>
