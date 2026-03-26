@@ -1,10 +1,3 @@
 # SPDX-License-Identifier: Apache-2.0
 
-config GPIO_CONNECTIVITY_TEST
-	bool "GPIO connectivity test mode"
-	help
-	  When enabled, compile src/gpio_test_main.c instead of the I2C
-	  master application.  Used to verify physical wiring before I2C
-	  testing.
-
 source "Kconfig.zephyr"
