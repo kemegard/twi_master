@@ -8,9 +8,9 @@
  *   1. Writes a 32-bit counter value to the TWI slave (address 0x54).
  *   2. Reads 4 bytes back from the slave and verifies they match.
  *
- * Hardware wiring (to slave board):
- *   Master P1.08 (SDA)  ----  Slave SDA
- *   Master P1.12 (SCL)  ----  Slave SCL
+ * Hardware wiring (to slave board, matches original test example):
+ *   Master P1.08 (SDA)  ----  Slave P1.09 (SDA)
+ *   Master P1.12 (SCL)  ----  Slave P1.13 (SCL)
  *   Common GND          ----  Common GND
  *
  * Build:
