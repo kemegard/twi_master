@@ -6,6 +6,9 @@ I2C master example for the nRF54L15DK development kit, built with
 Every second the firmware writes a 32-bit counter to the I2C slave
 at address **0x54**, then reads 4 bytes back and verifies they match.
 
+The companion slave project is at
+<https://github.com/kemegard/twi_slave>.
+
 ---
 
 ## Hardware
