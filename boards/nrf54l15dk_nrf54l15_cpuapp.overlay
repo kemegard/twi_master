@@ -1,3 +1,9 @@
+/ {
+	aliases {
+		i2c-master = &i2c21;
+	};
+};
+
 &pinctrl {
         i2c21_default_alt: i2c21_default_alt {
                 group1 {

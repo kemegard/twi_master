@@ -2,30 +2,35 @@
  * Copyright (c) 2024 Nordic Semiconductor ASA
  * SPDX-License-Identifier: Apache-2.0
  *
- * TWI Master example for nRF54L15
+ * TWI Master example — supports nRF54L15 and nRF52-series
  *
  * Every 1 second this firmware:
  *   1. Writes a 32-bit counter value to the TWI slave (address 0x54).
  *   2. Reads 4 bytes back from the slave and verifies they match.
  *
- * Hardware wiring (to slave board):
- *   Master P1.08 (SDA)  ----  Slave P1.09 (SDA)
- *   Master P1.12 (SCL)  ----  Slave P1.13 (SCL)
- *   Common GND          ----  Common GND
+ * The I2C bus is resolved via the "i2c-master" devicetree alias so the
+ * same source file builds for every supported board.  Board-specific pin
+ * assignments are in boards/<board>.overlay.
  *
- * NOTE: Slave uses P1.09/P1.13 to avoid sharing DK button pins.
+ * Supported targets:
+ *   nrf54l15dk/nrf54l15/cpuapp  – uses i2c21  (P1.08 SDA, P1.12 SCL)
+ *   nrf52dk/nrf52832             – uses i2c0   (P0.26 SDA, P0.27 SCL)
+ *   nrf52840dk/nrf52840          – uses i2c0   (P0.26 SDA, P0.27 SCL)
  *
- * Build:
- *   west build -b nrf54l15dk/nrf54l15/cpuapp -- -DAPP_DIR=<path_to_twi_master>
+ * Build examples:
+ *   west build -b nrf54l15dk/nrf54l15/cpuapp
+ *   west build -b nrf52dk/nrf52832
+ *   west build -b nrf52840dk/nrf52840
  */
 
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/sys/printk.h>
+#include <string.h>
 
-/* i2c21 is the TWIM (master) peripheral on nRF54L15 */
-#define I2C_MASTER_NODE  DT_NODELABEL(i2c21)
+/* Resolved via the "i2c-master" alias defined in each board overlay */
+#define I2C_MASTER_NODE  DT_ALIAS(i2c_master)
 #define SLAVE_ADDR       0x54
 
 int main(void)

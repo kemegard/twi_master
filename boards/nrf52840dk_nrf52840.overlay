@@ -1,0 +1,42 @@
+/*
+ * Board overlay for nrf52840dk/nrf52840
+ *
+ * Uses TWIM0 on the Arduino-compatible I2C header:
+ *   P0.26 — SDA
+ *   P0.27 — SCL
+ *
+ * Pull-ups are enabled in software; no external resistors required.
+ */
+
+/ {
+	aliases {
+		i2c-master = &i2c0;
+	};
+};
+
+&pinctrl {
+	i2c0_default_alt: i2c0_default_alt {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 26)>,
+				<NRF_PSEL(TWIM_SCL, 0, 27)>;
+			bias-pull-up;
+		};
+	};
+
+	i2c0_sleep_alt: i2c0_sleep_alt {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 26)>,
+				<NRF_PSEL(TWIM_SCL, 0, 27)>;
+			low-power-enable;
+		};
+	};
+};
+
+&i2c0 {
+	compatible = "nordic,nrf-twim";
+	status = "okay";
+	pinctrl-0 = <&i2c0_default_alt>;
+	pinctrl-1 = <&i2c0_sleep_alt>;
+	pinctrl-names = "default", "sleep";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};

@@ -1,7 +1,7 @@
-# TWI Master — nRF54L15DK
+# TWI Master
 
-I2C master example for the nRF54L15DK development kit, built with
-**nRF Connect SDK v3.2.4**.
+I2C master example for Nordic DK boards, built with
+**nRF Connect SDK v3.2.4+**.
 
 Every second the firmware writes a 32-bit counter to the I2C slave
 at address **0x54**, then reads 4 bytes back and verifies they match.
@@ -11,23 +11,17 @@ The companion slave project is at
 
 ---
 
-## Hardware
+## Supported boards
 
-**Board:** PCA10156 (nRF54L15DK), `nrf54l15dk/nrf54l15/cpuapp`
+| Board target | DK | Peripheral | SDA | SCL |
+|---|---|---|---|---|
+| `nrf54l15dk/nrf54l15/cpuapp` | PCA10156 (nRF54L15DK) | `i2c21` | P1.08 | P1.12 |
+| `nrf52dk/nrf52832` | PCA10040 (nRF52DK) | `i2c0` | P0.26 | P0.27 |
+| `nrf52840dk/nrf52840` | PCA10056 (nRF52840DK) | `i2c0` | P0.26 | P0.27 |
+| `nrf52833dk/nrf52833` | PCA10100 (nRF52833DK) | `i2c0` | P0.26 | P0.27 |
 
-**Peripheral used:** `i2c21` (TWIM — I2C master controller)
-
----
-
-## Physical wiring
-
-Connect the two nRF54L15DK boards as follows:
-
-| Master board | Signal | Slave board |
-|--------------|--------|-------------|
-| P1.08        | SDA    | P1.09       |
-| P1.12        | SCL    | P1.13       |
-| GND          | GND    | GND         |
+The I2C bus is selected at build time via the `i2c-master` devicetree
+alias defined in each board overlay under `boards/`.
 
 > **Note:** Pull-up resistors on SDA and SCL are handled in software
 > via `bias-pull-up` in the device tree overlay — no external
@@ -35,13 +29,42 @@ Connect the two nRF54L15DK boards as follows:
 
 ---
 
-## Build
+## Physical wiring
 
-From the NCS environment (west workspace at `D:\work\ncs\v3.2.0`):
+### nRF54L15DK
+
+| Master board | Signal | Slave board |
+|--------------|--------|-------------|
+| P1.08        | SDA    | P1.09       |
+| P1.12        | SCL    | P1.13       |
+| GND          | GND    | GND         |
+
+# nRF52DK / nRF52840DK / nRF52833DK
+
+| Master board | Signal | Slave board |
+|--------------|--------|-------------|
+| P0.26        | SDA    | (slave SDA) |
+| P0.27        | SCL    | (slave SCL) |
+| GND          | GND    | GND         |
+
+---
+
+## Build
 
 ```bash
 cd twi_master
+
+# nRF54L15DK
 west build -b nrf54l15dk/nrf54l15/cpuapp
+
+# nRF52DK (nRF52832)
+west build -b nrf52dk/nrf52832
+
+# nRF52840DK
+west build -b nrf52840dk/nrf52840
+
+# nRF52833DK
+west build -b nrf52833dk/nrf52833
 ```
 
 ---
